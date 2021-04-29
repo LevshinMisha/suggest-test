@@ -1,0 +1,13 @@
+{
+  "name": "create-react-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "parcel": "1.12.3",
+    "static-server": "2.2.1"
+  },
+  "scripts": {
+    "start": "static-server -o build",
+    "build": "parcel build ./src/index.html -d build"
+  }
+}

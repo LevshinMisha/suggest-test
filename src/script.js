@@ -1,17 +1,23 @@
 window.onload = function () {
+  document.getElementById("old").innerText = document.cookie;
   window.YaAuthSuggest.init(
     {
       client_id: "c46f0c53093440c39f12eff95a9f2f93",
       response_type: "token",
-      redirct_uri: "https://test.sso-test.kinopoisk.ru/suggest/token",
+      redirect_uri: "https://test.sso-test.kinopoisk.ru/suggest/token",
     },
-    "https://test.sso-test.kinopoisk.ru"
+    "https://test.sso-test.kinopoisk.ru",
+    { hostname: "https://autofill-test.yandex.ru" }
   )
-    .then(({ handler }) => handler())
-    .then(function (data) {
-      console.log("Сообщение с токеном: ", data);
+    .then(({ handler }) => {
+      handler();
+      setTimeout(() => {
+        document.getElementById("new").innerText = document.cookie;
+      }, 1000);
+      setTimeout(() => {
+        document.getElementById("timeout").innerText = document.cookie;
+      }, 30000);
     })
-    .catch(function (error) {
-      console.log("Что-то пошло не так: ", error);
-    });
+    .then((data) => console.log("Сообщение с токеном: ", data))
+    .catch((error) => console.log("Что-то пошло не так: ", error));
 };

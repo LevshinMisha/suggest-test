@@ -9,15 +9,7 @@ window.onload = function () {
     "https://test.sso-test.kinopoisk.ru",
     { hostname: "https://autofill-test.yandex.ru" }
   )
-    .then(({ handler }) => {
-      handler();
-      setTimeout(() => {
-        document.getElementById("new").innerText = document.cookie;
-      }, 1000);
-      setTimeout(() => {
-        document.getElementById("timeout").innerText = document.cookie;
-      }, 30000);
-    })
+    .then(({ handler }) => handler())
     .then((data) => console.log("Сообщение с токеном: ", data))
     .catch((error) => console.log("Что-то пошло не так: ", error));
 };

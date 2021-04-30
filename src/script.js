@@ -1,5 +1,4 @@
 window.onload = function () {
-  document.getElementById("old").innerText = document.cookie;
   window.YaAuthSuggest.init(
     {
       client_id: "c46f0c53093440c39f12eff95a9f2f93",

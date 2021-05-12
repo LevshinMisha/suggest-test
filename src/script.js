@@ -1,7 +1,7 @@
 window.onload = () =>
   window.YaAuthSuggest.init(
     {
-      client_id: "c46f0c53093440c39f12eff95a9f2f93",
+      client_id: "c423ab6a5fc04897a133a8f71f0ab771",
       response_type: "token",
       redirect_uri: "https://suggest-test.vercel.app/token",
     },

@@ -1,14 +1,16 @@
-window.onload = function () {
+window.onload = () =>
   window.YaAuthSuggest.init(
     {
       client_id: "c46f0c53093440c39f12eff95a9f2f93",
       response_type: "token",
-      redirect_uri: "https://test.sso-test.kinopoisk.ru/suggest/token",
+      redirect_uri: "https://suggest-test.vercel.app/token",
     },
-    "https://test.sso-test.kinopoisk.ru",
-    { hostname: "https://autofill-test.yandex.ru" }
+    "https://suggest-test.vercel.app"
   )
     .then(({ handler }) => handler())
-    .then((data) => console.log("Сообщение с токеном: ", data))
-    .catch((error) => console.log("Что-то пошло не так: ", error));
-};
+    .then((data) => {
+      document.body.innerHTML += `Сообщение с токеном: ${JSON.stringify(data)}`;
+    })
+    .catch((err) => {
+      document.body.innerHTML += `Что-то пошло не так: ${JSON.stringify(err)}`;
+    });

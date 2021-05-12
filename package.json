@@ -8,6 +8,6 @@
   },
   "scripts": {
     "start": "static-server -o build",
-    "build": "parcel build ./src/*.html -d build"
+    "build": "parcel build ./src/**/*.html -d build"
   }
 }

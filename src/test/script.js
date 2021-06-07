@@ -15,4 +15,8 @@ window.onload = () =>
       document.body.innerHTML += `Что-то пошло не так: ${JSON.stringify(err)}`;
     });
 
-window.addEventListener("message", console.log);
+window.addEventListener("message", (e) => {
+  if (e && e.data && e.data.cause === "suggest") {
+    console.log("postMessage: ", e.data);
+  }
+});

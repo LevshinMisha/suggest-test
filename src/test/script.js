@@ -5,7 +5,8 @@ window.onload = () =>
       response_type: "token",
       redirect_uri: "https://suggest-test.vercel.app/token",
     },
-    "https://suggest-test.vercel.app"
+    "https://suggest-test.vercel.app",
+    { hostname: "https://autofill-test.yandex.ru" }
   )
     .then(({ handler }) => handler())
     .then((data) => {

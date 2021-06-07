@@ -14,3 +14,5 @@ window.onload = () =>
     .catch((err) => {
       document.body.innerHTML += `Что-то пошло не так: ${JSON.stringify(err)}`;
     });
+
+window.addEventListener("message", console.log);
